@@ -31,7 +31,7 @@ You're reading it!
 ### Notebook Analysis
 #### 1. Run the functions provided in the notebook on test images (first with the test data provided, next on data you have recorded). Add/modify functions to allow for color selection of obstacles and rock samples.
 
-The threshold values for detection have been added to the process_image function. The navigatable terrain detetion works quite well with the default values but has been tested and improved to RGB (170,160,150). The obstacles are just the inversion of the navigatable terrain pixels.
+The threshold values for detection have been added to the `process_image()` function. The navigatable terrain detetion works quite well with the default values but has been tested and improved to RGB (170,160,150). The obstacles are just the inversion of the navigatable terrain pixels.
 
 For the rock detection the function color_thresh was updated with max values for the color in order to filter yellow.
 
