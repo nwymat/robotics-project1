@@ -47,17 +47,16 @@ The given pixels are then mapped into two views. The rover-centric view and the 
 
 The preception is done as before just using the Rover class as data source.
 
-The `decision_step()` was only slightly modified. I didn't like to have the average gradient over the whole range. So I limited the distance and split the view in a left, centre and right sector. The sector with the most navigateable pixels will be used to calculate the average angle for steering. This makes the steering a bit smoother and does not react to what happens faraway.
+The `decision_step()` was only slightly modified. I didn't like to have the average gradient over the whole range. So I limited the distance and split the view in a left, centre and right sector. The sector with the most navigateable pixels will be used to calculate the average angle for steering. This makes the steering a bit smoother and the rover does not react to what happens too faraway.
 
 ![alt text](./Three%20sector%20navigation.png)
 
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
 
-The results a reasonable mapping and rock detection work as expected. But there is a lot of room for improvement. The decision tree could be made much more detailed in order to cover some major problems I encountered during the tests.
+I used the default values for the simulation.
+
+The results are reasonable, mapping and rock detection work as expected. But there is a lot of room for improvement. The decision tree could be made much more detailed in order to cover some major problems I encountered during the tests.
 
 * Infinite loop detection (going in circles)
 * Getting stuck on big rocks because the pixels on the left or right still indicate some room
 * Complete mapping with random decisions to go left or rigth (which was prepared with the sectors)
-
-
-
