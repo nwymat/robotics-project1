@@ -39,18 +39,23 @@ For the rock detection the function color_thresh was updated with max values for
 
 First the image from the camera is trasnsformed to a view from above. The assumption is a flat world with a pitch and roll of zero for the camera. The terrain, obstacle and rock detection works as described above based on color thresholds.
 
-The given pixels are then mapped into two views. The rover-centric view and the absolute view, the worldmap. The rover centric view is used for the navigation. In order to facilitate the navigation the pixels are provided in polar coordinates where the rover is at zero. The mapping to the absolute frame is done by translation and rotation based on the knowledge of the actual position and the yaw angle.
+The given pixels are then mapped into two views. The rover-centric view and the absolute view, the worldmap. The rover centric view is used for the navigation. In order to facilitate the navigation the pixels are provided in polar coordinates where the rover is at zero. The mapping to the absolute frame is done by translation and rotation based on the knowledge of the actual position and the yaw angle. To increas the accuracy of the absolute mapping the data is only updated if the rover is within a certain pitch and roll angle. 
 
 ### Autonomous Navigation and Mapping
 
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
 
+The preception is done as before just using the Rover class as data source.
+
+The `decision_step()` was only slightly modified. I didn't like to have the average gradient over the whole range. So I limited the distance and split the view in a left, centre and right sector. The sector with the most navigateable pixels will be used to calculate the average angle for steering. This makes the steering a bit smoother and does not react to what happens faraway.
+
+![alt text](./Three%20sector%20navigation.png)
 
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
 
-![alt text](./Three%20sector%20navigation.png)
+
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 
