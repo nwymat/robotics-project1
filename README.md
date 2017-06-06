@@ -33,13 +33,12 @@ You're reading it!
 
 The threshold values for detection have been added to the `process_image()` function. The navigatable terrain detetion works quite well with the default values but has been tested and improved to RGB (170,160,150). The obstacles are just the inversion of the navigatable terrain pixels.
 
-For the rock detection the function color_thresh was updated with max values for the color in order to filter yellow.
-
+For the rock detection the function color_thresh was updated with max values for the color in order to filter yellow. As yellow does not or only contain a little blue a max value functionality in `color_thresh()` makes sense. The color theroshold is set to (120,120,0) and the max to (255,255,50) in order to properly detect yellow.
 
 #### 1. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
-And another! 
 
-![alt text](./Three%20sector%20navigation.png)
+First the image from the camera is trasnsformed to a view from above. The assumption is a flat world with a pitch and roll of zero for the camera. The terrain, obstacle and rock detection works as described above based on color thresholds. 
+
 ### Autonomous Navigation and Mapping
 
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
@@ -48,6 +47,8 @@ And another!
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
+
+![alt text](./Three%20sector%20navigation.png)
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 
