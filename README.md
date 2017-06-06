@@ -53,14 +53,11 @@ The `decision_step()` was only slightly modified. I didn't like to have the aver
 
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
 
-**Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
+The results a reasonable mapping and rock detection work as expected. But there is a lot of room for improvement. The decision tree could be made much more detailed in order to cover some major problems I encountered during the tests.
 
+* Infinite loop detection (going in circles)
+* Getting stuck on big rocks because the pixels on the left or right still indicate some room
+* Complete mapping with random decisions to go left or rigth (which was prepared with the sectors)
 
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-
-
-
-![alt text][image3]
 
 
