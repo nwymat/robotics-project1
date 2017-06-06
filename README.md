@@ -37,7 +37,9 @@ For the rock detection the function color_thresh was updated with max values for
 
 #### 1. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
 
-First the image from the camera is trasnsformed to a view from above. The assumption is a flat world with a pitch and roll of zero for the camera. The terrain, obstacle and rock detection works as described above based on color thresholds. 
+First the image from the camera is trasnsformed to a view from above. The assumption is a flat world with a pitch and roll of zero for the camera. The terrain, obstacle and rock detection works as described above based on color thresholds.
+
+The given pixels are then mapped into two views. The rover-centric view and the absolute view, the worldmap. The rover centric view is used for the navigation. In order to facilitate the navigation the pixels are provided in polar coordinates where the rover is at zero. The mapping to the absolute frame is done by translation and rotation based on the knowledge of the actual position and the yaw angle.
 
 ### Autonomous Navigation and Mapping
 
